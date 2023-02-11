@@ -1,0 +1,52 @@
+.filter.form-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border: 3px solid #4e73df;
+    margin: 20px 0px;
+}
+
+.filter.form-row>div {
+    margin: 20px;
+}
+
+#container-dashboard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-body#dashboard {
+    height: 300px;
+}
+
+#filter h4 {
+    text-transform: 30px 0px;
+}
+
+#btn_action {
+    margin: 0px 0px 20px 0px;
+}
+
+#btn_action a {
+    margin: 0px 10px;
+    width: 100px;
+}
+
+body#login .container {
+    height: 600px;
+}
+
+body#login .container .card {
+    width: 500px;
+}
+
+@media (max-width:768px) {
+    .filter.form-row {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
+}
