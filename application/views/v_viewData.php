@@ -18,9 +18,7 @@
     <!-- Custom styles for this template -->
     <link href="<?php echo base_url() ?>asset/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>asset/css/style.css" rel="stylesheet">
-    <!-- Custom styles for this page -->
     <link href="<?php echo base_url() ?>asset/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.css" />
     <?php
     $data_user = $this->data->get_profile($_SESSION['username']);
@@ -236,10 +234,10 @@
                                 </div>
                             <?php } ?>
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th><input type="checkbox" id="select_all"></th>
+                                            <th><input onchange="selectall()" type="checkbox" id="select-all"></th>
                                             <th>Action</th>
                                             <th>Project Name</th>
                                             <th>Client</th>
@@ -248,23 +246,11 @@
                                             <th>Status</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th><input type="checkbox" id="select_all"></th>
-                                            <th>Action</th>
-                                            <th>Project Name</th>
-                                            <th>Client</th>
-                                            <th>Project Start</th>
-                                            <th>Project End</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
                                         <?php foreach ($data as $d) { ?>
                                             <tr id="<?php echo $d->project_id ?>">
                                                 <td><input class="checkbox" type="checkbox" name="checked_id[]" value="<?php echo $d->project_id ?>"></td>
-                                                <td><a class="btn btn-warning" href="<?= site_url('edit') ?>?project_id=<?php echo $d->project_id ?>"><i class="fas fa-user-edit"> Edit</i></a>
-                                                </td>
+                                                <td><a class="btn btn-warning" href="<?= site_url('edit') ?>?project_id=<?php echo $d->project_id ?>"><i class="fas fa-user-edit"> Edit</i></a></td>
                                                 <td><?php echo $d->project_name ?></td>
                                                 <td><?php echo $d->client_name ?></td>
                                                 <td><?php echo date("d F Y", strtotime($d->project_start)) ?></td>
@@ -323,41 +309,25 @@
             </div>
         </div>
     </div>
-    <script>
+    <script type="text/javascript">
+        const checkbox_all = document.querySelector("#select-all");
+        const checkbox_list = document.querySelectorAll(".checkbox");
+
+        function selectall() {
+            const ischecked = checkbox_all.checked;
+            for (let i = 0; i < checkbox_list.length; i++) {
+                checkbox_list[i].checked = ischecked;
+            }
+        }
+        //Call the dataTables jQuery plugin
         $(document).ready(function() {
-            $('#myTable').DataTable({
+            $('#dataTable').DataTable({
                 pageLength: 5,
                 lengthMenu: [
                     [5, 10, 20, -1],
                     [5, 10, 20, 'Todos']
                 ]
             })
-        });
-
-        $('#btn_clear').click(function() {
-            $('#myTable').DataTable();
-        });
-
-        $(document).ready(function() {
-            $('#select_all').on('click', function() {
-                if (this.checked) {
-                    $('.checkbox').each(function() {
-                        this.checked = true;
-                    });
-                } else {
-                    $('.checkbox').each(function() {
-                        this.checked = false;
-                    });
-                }
-            });
-
-            $('.checkbox').on('click', function() {
-                if ($('.checkbox:checked').length == $('.checkbox').length) {
-                    $('#select_all').prop('checked', true);
-                } else {
-                    $('#select_all').prop('checked', false);
-                }
-            });
         });
 
         function delete_alert() {
@@ -416,12 +386,11 @@
     <script src="<?php echo base_url() ?>asset/vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="<?php echo base_url() ?>asset/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="<?php echo base_url() ?>asset/js/demo/datatables-demo.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
     <script src="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 </body>
 
 </html>
