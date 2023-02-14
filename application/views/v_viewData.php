@@ -19,13 +19,9 @@
     <link href="<?php echo base_url() ?>asset/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>asset/css/style.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>asset/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.css" /> -->
-    <?php
-    $data_user = $this->data->get_profile($_SESSION['username']);
-    ?>
+    <link rel="stylesheet" href="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.css" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-
+    <script src="<?php echo base_url() ?>asset/vendor/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url() ?>asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
@@ -37,7 +33,6 @@
     <!-- Page level plugins -->
     <script src="<?php echo base_url() ?>asset/vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="<?php echo base_url() ?>asset/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
     <script src="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </head>
@@ -377,28 +372,6 @@
             }
         }
     </script>
-
-    <!-- Bootstrap core JavaScript-->
-    <!-- <script src="<?php echo base_url() ?>asset/vendor/jquery/jquery.min.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-
-    <script src="<?php echo base_url() ?>asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
-
-    <!-- Core plugin JavaScript-->
-    <!-- <script src="<?php echo base_url() ?>asset/vendor/jquery-easing/jquery.easing.min.js"></script> -->
-
-    <!-- Custom scripts for all pages-->
-    <!-- <script src="<?php echo base_url() ?>asset/js/sb-admin-2.min.js"></script> -->
-
-    <!-- Page level plugins -->
-    <!-- <script src="<?php echo base_url() ?>asset/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="<?php echo base_url() ?>asset/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-    <script src="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> -->
-
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
-
 </body>
 
 </html>
