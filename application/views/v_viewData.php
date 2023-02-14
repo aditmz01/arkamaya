@@ -19,10 +19,27 @@
     <link href="<?php echo base_url() ?>asset/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>asset/css/style.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>asset/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.css" />
+    <!-- <link rel="stylesheet" href="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.css" /> -->
     <?php
     $data_user = $this->data->get_profile($_SESSION['username']);
     ?>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <script src="<?php echo base_url() ?>asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="<?php echo base_url() ?>asset/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="<?php echo base_url() ?>asset/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="<?php echo base_url() ?>asset/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url() ?>asset/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <script src="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </head>
 </head>
 
@@ -174,7 +191,6 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Selamat Datang</h1>
 
@@ -223,16 +239,6 @@
                                     <a class="btn btn-danger w-10" onclick="delete_alert()"><i class="fas fa-trash"> Delete</i></a>
                                 </div>
                             </div>
-                            <?php if (isset($error_message)) { ?>
-                                <div class="alert alert-danger" role="alert">
-                                    <?= $error_message ?>
-                                </div>
-                            <?php } ?>
-                            <?php if (isset($success)) { ?>
-                                <div class="alert alert-success" role="alert">
-                                    <?= $success ?>
-                                </div>
-                            <?php } ?>
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -263,7 +269,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <!-- /.container-fluid -->
 
@@ -319,6 +324,7 @@
                 checkbox_list[i].checked = ischecked;
             }
         }
+
         //Call the dataTables jQuery plugin
         $(document).ready(function() {
             $('#dataTable').DataTable({
@@ -331,7 +337,7 @@
         });
 
         function delete_alert() {
-            if ($('.checkbox:checked').length < 0) {
+            if ($('.checkbox.checked').length < 0) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
@@ -373,23 +379,25 @@
     </script>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="<?php echo base_url() ?>asset/vendor/jquery/jquery.min.js"></script>
-    <script src="<?php echo base_url() ?>asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="<?php echo base_url() ?>asset/vendor/jquery/jquery.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <script src="<?php echo base_url() ?>asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
 
     <!-- Core plugin JavaScript-->
-    <script src="<?php echo base_url() ?>asset/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- <script src="<?php echo base_url() ?>asset/vendor/jquery-easing/jquery.easing.min.js"></script> -->
 
     <!-- Custom scripts for all pages-->
-    <script src="<?php echo base_url() ?>asset/js/sb-admin-2.min.js"></script>
+    <!-- <script src="<?php echo base_url() ?>asset/js/sb-admin-2.min.js"></script> -->
 
     <!-- Page level plugins -->
-    <script src="<?php echo base_url() ?>asset/vendor/datatables/jquery.dataTables.min.js"></script>
+    <!-- <script src="<?php echo base_url() ?>asset/vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="<?php echo base_url() ?>asset/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <script src="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
 
 </body>
 
